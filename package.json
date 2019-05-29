@@ -1,0 +1,31 @@
+{
+  "name": "betukaikei",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:dev": "nodemon",
+    "db:model": "node_modules/.bin/sequelize model:generate",
+    "migrate:up": "node_modules/.bin/sequelize db:migrate",
+    "migrate:down": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "migrate:reset": "(sequelize db:drop || sequelize db:create) && sequelize db:migrate"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "crypto-js": "^3.1.9-1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.16.1",
+    "http-errors": "~1.6.3",
+    "lodash": "^4.17.11",
+    "moment-timezone": "^0.5.25",
+    "morgan": "~1.9.1",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.19.1",
+    "npx": "^10.2.0",
+    "pug": "^2.0.3",
+    "sequelize": "^5.8.6",
+    "sequelize-cli": "^5.4.0",
+    "uuid": "^3.3.2"
+  }
+}

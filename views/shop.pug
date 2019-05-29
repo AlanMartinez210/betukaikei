@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+
+  form(name="registShopForm")
+    label(for="shopName"): |店名
+    input(type="text", id="shopName", name="shop_name", maxlength=256)
+    label(for="phoneNumber"): |電話番号
+    input(type="text", id="phoneNumber", name="phone_number", maxlength=17)
+    label(for="postcode"): |郵便番号
+    input(type="text", id="postcode", name="postcode", maxlength=9)
+    label(for="prefecture"): |都道府県
+    input(type="text", id="prefecture", name="prefecture", maxlength=256)
+    label(for="city"): |市町村
+    input(type="text", id="city", name="city", maxlength=256)
+    label(for="section"): |丁目・番地
+    input(type="text", id="section", name="section", maxlength=256)
+    label(for="building"): |建物名・階
+    input(type="text", id="building", name="building", maxlength=256)
+
+    button(name="doRegistShop", value="登録")
+      |登録

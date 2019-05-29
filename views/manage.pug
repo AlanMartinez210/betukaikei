@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+
+  section#hostLoginSection
+
+    if isLogin
+      p: |有効期限: #{expiration_date}
+      //- 店舗情報が存在するかチェック
+      if shop_data
+        p: |店舗名: #{shop_data.name}
+        p: |電話番号: #{shop_data.phone_number}
+        p: |メンバー追加用URL
+        p: |http://localhost:3000/group?access_key=#{access_key}
+      else
+        a(href="/shop"): |店舗の作成
+        
+    else
+      form(name="hostLoginForm")
+        label(for="hostName"): |ホスト名
+        input(type="text", id="hostName", name="host_name", maxlength=30)
+        label(for="passcode"): |パスコード
+        input(type="text", id="passcode", name="passcode", maxlength=6)
+
+        button(name="doHostLogin", value="ログイン")
+          |ログイン
+
+      

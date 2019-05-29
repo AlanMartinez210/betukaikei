@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  h1= title
+
+  if isCreate
+    section#registGroupSection
+    
+      form(name="registGroupForm")
+        label(for="groupTitle"): |タイトル
+        input(type="text", id="groupTitle", name="group_title", maxlength=100)
+        label(for="hostName"): |ホスト名
+        input(type="text", id="hostName", name="host_name", maxlength=30)
+        label(for="password"): |パスワード
+        input(type="text", id="password", name="password", maxlength=30)
+        label(for="description"): |説明
+        input(type="text", id="description", name="description", maxlength=30)
+
+        button(name="doRegistGroup", value="登録")
+          |登録
+
+  else
+
+    p: |#{group_data.title}
+    p: |#{group_data.description}
+    p: |幹事
+    p: |#{group_data.host_name}
+
+    if isJoin
+      section#joinGroupSection
+
+        form(name="joinGroupFrom")
+          p: |名前を入力してください。
+          label(for="userName"): |名前
+          input(type="text", id="userName", name="user_name", maxlength=30)
+          if requirePassword
+            p: |このグループはパスワードが指定されています。
+            label(for="password"): |参加パスワード
+            input(type="text", id="password", name="password", maxlength=30)
+          button(name="doJoinGroup", value="参加")
+            |参加
+
+    else
+      section#groupSection
+        p: |メニュー作成
+        form(name="createMenuFrom")
+          label(for="menuName"): |品名
+          input(type="text", id="menuName", name="menu_name", maxlength=30)
+          label(for="price"): |値段
+          input(type="text", id="price", name="price", maxlength=9)
+
+          button(name="doCreateMenu", value="作成")
+            |作成
+        
+        p: |メニュー一覧
+        .menu-list
+
+        p: |注文履歴
+        .order-list
